@@ -1,0 +1,5 @@
+name=Coxis Servermessage
+poster=poster.png
+id=CoxisServerMessage
+require=CoxisUtil
+description=Displays a admin-defined servermessage to all clients connecting
