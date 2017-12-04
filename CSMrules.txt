@@ -1,0 +1,19 @@
+Awesome Rules with multiple lines!
+
+Yep, really!
+And a fancy listing with numbers:
+1.) You do not talk about the fightclub
+2.) You do not talkt abouth the fightclub
+3.) You really don't talk about the fightclub!
+
+So much text that I can't help myself but think:
+
+
+WHYWHYHWHY!!??!??!?!?
+
+Do you really need that many rules for a MP-game? What kind of players do you think will join your server? That's just insane, dude! Don't you think?
+Anyway, I think I will leave it with that for now, let's just see, how the text behaves in the modal dialog window that is shipped with the mod CoxisServerMessage.
+Hopefully it will all fit in there, or atleast creates a scrollbar for the user.
+
+
+That's it for now, bye!

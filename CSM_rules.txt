@@ -1,7 +1,0 @@
-Awesome Rules with multiple lines!
-
-Yep, really!
-And a fancy listing with numbers:
-1.) You do not talk about the fightclub
-2.) You do not talkt abouth the fightclub
-3.) You really don't talk about the fightclub!

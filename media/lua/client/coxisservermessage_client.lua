@@ -22,12 +22,24 @@ CoxisServerMessageClient.initMP = function()
   CoxisServerMessageClient.module = CoxisServerMessageClient.luanet.getModule("CoxisServerMessage", CoxisServerMessageClient.debug);
   CoxisServerMessageClient.luanet.setDebug(CoxisServerMessageClient.debug);
   CoxisServerMessageClient.module.addCommandHandler("rules", CoxisServerMessageClient.receiveRules);
-  CoxisServerMessageClient.module.send("rules", getPlayer(), getPlayer():getUsername());
 end
 
 CoxisServerMessageClient.receiveRules = function(_player, _rules)
-  CoxisUtil.printDebug("CoxisServerMessageClient", "RECEIVED RULES")
-  CoxisServerMessageClient.rules = _rules;
+    local height, width;
+    height = getCore():getScreenHeight()/2;
+    width = getCore():getScreenWidth()/2;
+    CoxisUtil.printDebug("CoxisServerMessageClient", "RECEIVED RULES");
+    CoxisServerMessageClient.rules = _rules;
+    CoxisUtil.printDebug("CoxisServerMessageClient", CoxisServerMessageClient.rules);
+    CoxisUtil.okModal(CoxisServerMessageClient.rules, true, width, height);  -- #todo: change resolution of the window according to the screen size of the game
+end
+
+CoxisServerMessageClient.askRules = function(_tick)
+  if _tick >= 3 then
+    CoxisUtil.printDebug("CoxisServerMessageClient", "ASKING RULES");
+    CoxisServerMessageClient.module.send("rules", getPlayer());
+    Events.OnTick.Remove(CoxisServerMessageClient.askRules);
+  end
 end
 
 CoxisServerMessageClient.init = function()
@@ -39,3 +51,4 @@ CoxisServerMessageClient.init = function()
 end
 
 Events.OnConnected.Add(CoxisServerMessageClient.init)
+Events.OnTick.Add(CoxisServerMessageClient.askRules)
